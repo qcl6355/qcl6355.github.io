@@ -32,6 +32,10 @@
 <div>
 <div class="post">
 <h1>随机优化技术</h1>
+
+<div id="outline-container-orgheadline1" class="outline-2">
+<h2 id="orgheadline1">几种随机优化技术介绍</h2>
+<div class="outline-text-2" id="text-orgheadline1">
 <ol class="org-ol">
 <li><p>
 Stochastic Gradient Descent (SGD)
@@ -56,7 +60,7 @@ computed over different data. This is often partially mitigated by
 re-using the gradient value from the previous iteration, scaled by
 a momentum hyperparameter \(\mu\), as follows:
 \[ v_{t+1} = \mu v_{t} - \eta \nabla L(\theta{t})\]
-\[ \Theta_{t+1} = \theta_{t} + v_{t+1} \]
+\[ \theta_{t+1} = \theta_{t} + v_{t+1} \]
 It has been argued that including the previous gradient step has
 the effect of approximating some second-order information about the
 gradient.
@@ -85,6 +89,8 @@ where division is elementwise and \(\epsilon\) is a small constant
 included for numerical stability.
 </p></li>
 </ol>
+</div>
+</div>
 
 </div>
 </div>
