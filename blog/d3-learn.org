@@ -1,0 +1,94 @@
+#+TITLE:       D3可视化学习
+#+AUTHOR:      ShengLi
+#+EMAIL:       Sheng@ShengLideMacBook-Pro.local
+#+DATE:        2016-03-27 Sun
+#+URI:         /blog/%y/%m/%d/d3可视化学习
+#+KEYWORDS:    D3
+#+TAGS:        Javascript,d3
+#+LANGUAGE:    en
+#+OPTIONS:     H:3 num:nil toc:nil \n:nil ::t |:t ^:nil -:nil f:t *:t <:t
+#+DESCRIPTION: D3可视化学习笔记
+
+* D3可视化学习
+1. 动态效果
+| 方法         | 说明                                              |
+|--------------+---------------------------------------------------|
+| transition() | 状态转移                                          |
+| duration()   | 指定过渡的持续时间，单位为毫秒                    |
+| ease()       | 指定过渡的方式（linear, circle, elastic, bounce） |
+| delay()      | 指定延迟的时间，表示一定时间后才开始转变          | 
+
+#+BEGIN_SRC javascript
+  var circle1 = svg.append("circle")
+      .attr("cx", 100)
+      .attr("cy", 100)
+      .attr("r", 45)
+      .style("fill", "green")
+
+  circle1.transition()
+      .duration(1000)
+      .attr("cx", 300)
+      .style("fill", "steelblue")
+#+END_SRC
+
+2. 理解Update, Enter, Exit的用法
+处理选择的元素和数据的数量关系不确定的情况
+update表示对齐的部分
+1. 元素的个数 < 数据的个数， 使用enter，添加元素
+2. 元素的个数 > 数据的个数， 使用exit，删除元素
+
+#+BEGIN_SRC javascript
+  // 假定body里面有三个p元素
+
+  var dataset = [3, 6, 9, 12, 15];
+
+  // 选择body中的p元素
+  var p = d3.select("body").selectAll("p");
+
+  // 获取update部分
+  var update = p.data(dataset);
+
+  // 获取enter部分
+  var enter = update.enter();
+  // 如果元素p的个数大于dataset的个数时
+  var exit = update.exit();
+
+  // update部分的处理：更新属性值
+  update.text(function(d) {
+      return "update " + d;
+  });
+
+  // enter部分的处理；添加元素后赋予属性值
+  enter.append("p")
+      .text(function(d) {
+          return "enter " + d;
+      });
+#+END_SRC
+
+3. 交互式操作
+在d3中，每一个选择集都有on()函数，用于添加事件监听器。
+#+BEGIN_SRC javascript
+  var circle = svg.append("circle")
+
+  circle.on("click", function(){
+      //add some processing code
+  });
+#+END_SRC
+
+4. 布局（layout）
+Layout: 决定什么元素绘制在哪里
+数据->布局->获得绘图所需的数据->在画布上添加相应的图形->图表
+| Layout    | 说明     |
+|-----------+----------|
+| Pie       | 饼状图   |
+| Force     | 力导向图 |
+| Chord     | 弦图     |
+| Tree      | 树状图   |
+| Cluster   | 集群图   |
+| Bundle    | 捆图     |
+| Pack      | 打包图   |
+| Histogram | 直方图   |
+| Partition | 分区图   |
+| Stack     | 堆栈图   |
+| Treemap   | 矩阵树图 |
+| Hierarchy | 层级图   |

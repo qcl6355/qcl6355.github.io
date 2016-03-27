@@ -1,0 +1,48 @@
+#+TITLE:       随机优化技术
+#+AUTHOR:      ShengLi
+#+EMAIL:       Sheng@ShengLideMacBook-Pro.local
+#+DATE:        2016-03-27 Sun
+#+URI:         /blog/%y/%m/%d/随机优化技术
+#+KEYWORDS:    SGD,AdaGrad,Rmsprop
+#+TAGS:        SGD,AdaGrad,Rmsprop
+#+LANGUAGE:    en
+#+OPTIONS:     H:3 num:nil toc:nil \n:nil ::t |:t ^:nil -:nil f:t *:t <:t
+#+DESCRIPTION: 随机优化技术相关记录
+
+* 随机优化技术
+1. Stochastic Gradient Descent (SGD)
+   SGD simply updates each parameter by substracting the gradient of
+   the loss w.r.t the parameter, scaled by the learning rate $\eta$, a
+   hyperparameter. If $\eta$ is too large, SGD will diverge; if it's
+   too small, it will converge slowly. The update rule is simply \[
+   \theta_{t+1} = \theta_{t} - \eta \nabla L(\theta{t}) \]
+
+2. Momentum (动量)
+   In SGD, the gradient $\nabla L(\theta_{t})$ often changes rapidlly
+   at each iteration $t$ due to the fact that the loss is being
+   computed over different data. This is often partially mitigated by
+   re-using the gradient value from the previous iteration, scaled by
+   a momentum hyperparameter $\mu$, as follows:
+   \[ v_{t+1} = \mu v_{t} - \eta \nabla L(\theta{t})\]
+   \[ \Theta_{t+1} = \theta_{t} + v_{t+1} \]
+   It has been argued that including the previous gradient step has
+   the effect of approximating some second-order information about the
+   gradient.
+
+3. Nesterov's Accelerated Gradient (NAG)
+
+4. AdaGrad
+   Adagrad effectively rescales the learning rate for each parameter
+   according to the history of the gradients for that parameter. This
+   is done by dividing each item in $\nabla L$ by the squares root of
+   the sum of squares of its historical gradient. Rescaling in this
+   way effectively lowers the learning rate for parameters which
+   consistently have large gradient values. It also effectively
+   decreases the learning rate over time, because the sum of squares
+   will continue to grow with the iteration. After setting the
+   rescaling term g = 0, the updates are as follows:
+   \[ g_{t+1} = g_{t} + \nabla L(\theta_{t})^{2} \]
+   \[ \theta_{t+1} = \theta_{t} - \frac{\eta \nabla
+   L(\theta_{t})}{\sqrt{g_{t+1}} + \epsilon} \]
+   where division is elementwise and $\epsilon$ is a small constant
+   included for numerical stability.
