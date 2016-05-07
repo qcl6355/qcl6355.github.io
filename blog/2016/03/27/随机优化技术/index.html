@@ -5,7 +5,7 @@
     <meta charset="utf-8" />
     <meta name="author" content="ShengLi" />
     <meta name="description" content="随机优化技术相关记录" />
-    <meta name="keywords" content="SGD,AdaGrad,Rmsprop" />
+    <meta name="keywords" content="SGD,AdaGrad,RMSProp" />
     <link rel="stylesheet" href="/media/css/main.css" type="text/css">
     <link rel="stylesheet" href="/media/css/prettify.css" type="text/css">
   </head>
@@ -37,23 +37,14 @@
 <h2 id="orgheadline1">几种随机优化技术介绍</h2>
 <div class="outline-text-2" id="text-orgheadline1">
 <ol class="org-ol">
-<li><p>
-Stochastic Gradient Descent (SGD)
-</p>
-
-<p>
+<li>Stochastic Gradient Descent (SGD):
 SGD simply updates each parameter by substracting the gradient of
 the loss w.r.t the parameter, scaled by the learning rate \(\eta\), a
 hyperparameter. If \(\eta\) is too large, SGD will diverge; if it's
 too small, it will converge slowly. The update rule is simply \[
-   \theta_{t+1} = \theta_{t} - \eta \nabla L(\theta{t}) \]
-</p></li>
+   \theta_{t+1} = \theta_{t} - \eta \nabla L(\theta{t}) \]</li>
 
-<li><p>
-Momentum (动量)
-</p>
-
-<p>
+<li>Momentum (动量):
 In SGD, the gradient \(\nabla L(\theta_{t})\) often changes rapidlly
 at each iteration \(t\) due to the fact that the loss is being
 computed over different data. This is often partially mitigated by
@@ -63,16 +54,9 @@ a momentum hyperparameter \(\mu\), as follows:
 \[ \theta_{t+1} = \theta_{t} + v_{t+1} \]
 It has been argued that including the previous gradient step has
 the effect of approximating some second-order information about the
-gradient.
-</p></li>
+gradient.</li>
 
-<li>Nesterov's Accelerated Gradient (NAG)</li>
-
-<li><p>
-AdaGrad
-</p>
-
-<p>
+<li>AdaGrad:
 Adagrad effectively rescales the learning rate for each parameter
 according to the history of the gradients for that parameter. This
 is done by dividing each item in \(\nabla L\) by the squares root of
@@ -86,9 +70,28 @@ rescaling term g = 0, the updates are as follows:
 \[ \theta_{t+1} = \theta_{t} - \frac{\eta \nabla
    L(\theta_{t})}{\sqrt{g_{t+1}} + \epsilon} \]
 where division is elementwise and \(\epsilon\) is a small constant
-included for numerical stability.
-</p></li>
+included for numerical stability.</li>
+
+<li>RMSProp:
+RMSProp is very similar to AdaGrad. The only difference is that the
+\(g_{t}\) term is computed as an exponentially decaying average
+instead of an accumulated sum. This makes \(g_{t}\) an estimate of
+the second moment of \(\nabla L\) and avoids the fact that the
+learning rate effectively shrinks over time. The update is as follows:
+\[ g_{t+1} = \beta g_{t} + (1 - \beta)\nabla L(\theta_{t})^{2} \]
+\[ \theta_{t+1} = \theta_{t} - \frac{\eta \nabla L(\theta_{t})}{\sqrt{g_{t+1}} + \epsilon} \]</li>
 </ol>
+
+
+<p>
+In the original lecture slides where it was proposed, \(\beta\) is
+set to 0.9. In , it is shown that the \(\sqrt{g_{t+1}}\) term
+approximates (in expectation) the diagonal of the absolute value of
+the Hessian matrix (assuming the update steps are \(N(0,1)\)
+distributed). It is also argued that the absolute value of the
+Hessian is better to use for non-convex problems which may have
+many saddle points.
+</p>
 </div>
 </div>
 
@@ -98,7 +101,7 @@ included for numerical stability.
       <div class="post-meta">
         <span title="post date" class="post-info">2016-03-27</span>
         <span title="last modification date" class="post-info">2016-03-27</span>
-        <span title="tags" class="post-info"><a href="/tags/sgd/">SGD</a>, <a href="/tags/adagrad/">AdaGrad</a>, <a href="/tags/rmsprop/">Rmsprop</a></span>
+        <span title="tags" class="post-info"><a href="/tags/sgd/">SGD</a>, <a href="/tags/adagrad/">AdaGrad</a>, <a href="/tags/rmsprop/">RMSProp</a></span>
         <span title="author" class="post-info">ShengLi</span>
       </div>
       <section>
