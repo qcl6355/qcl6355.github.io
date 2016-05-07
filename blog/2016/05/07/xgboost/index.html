@@ -32,17 +32,19 @@
 <h2 id="orgheadline1">Supervised Learning</h2>
 <div class="outline-text-2" id="text-orgheadline1">
 <ol class="org-ol">
-<li>我们定义训练数据为$D = \{(X_i, y_i)\}_{i=1}^{N}$，这里的
-$X_i$是我们的输入（可理解为特征空间的输入），$y_i$是对应的
+<li>我们定义训练数据为 \(D = \{(X_i, y_i)\}_{i=1}^{N}\) ，这里的
+\(X_i\) 是我们的输入（可理解为特征空间的输入），$y_i$是对应的
 标签（Ground Truth Label）。</li>
 
 <li>模型：给定样本我们需要寻求一个模型来解释这批数据（Fitting the data），
-比如线性回归模型$y=w \dot x + b$。这里的$\mathbf{w}$称为模
+比如线性回归模型 \(y=w \dot x + b\) 。这里的 \(w\) 称为模
 型的参数。</li>
 
-<li>优化的目标： 通常我们定义一个损失函数，我们的目标就是寻求损失函数最小值情
-况下的参数值作为我们的最优的模型。仍然以线性回归为例，损失函数定义
-如下：  \[ L(\theta) = \sum_{i=1}^{N} (y_i - \hat{y_i})^2\]</li>
+<li>优化的目标： 目标函数通常定义为一个损失函数和一个模型正则化函数，我
+们的目标就是寻求目标函数最小值情况下的参数值作为我们的最优的模型。
+即目标函数形如 \(Obj(\Theta) = L(\Theta) + \Omega(\Theta)\)
+仍然以线性回归为例，损失函数定义如下： \[ Obj(\theta) =
+   \sum_{i=1}^{N} (y_i - \hat{y_i})^2 + \lambda ||w||^2 \]</li>
 
 <li>优化的方法：对应这种参数空间下的优化可以使用梯度下降的方法去优化，
 比如SGD，L-BFGS等等。</li>
@@ -62,13 +64,14 @@ CART的叶子节点带有分值，这个值可以用来做回归也可以用来�
 </p>
 
 <p>
-自然地，我们可以构建多棵树来构建模型，形式化定义如下：\[ y_i =
-\sum_{i=1}^k f_{i}(x_i)\] $f_{i}(x)$表示每棵CART，包含了树的结构以及叶
+自然地，我们可以构建多棵树来构建模型，形式化定义如下：\(y_i =
+\sum_{i=1}^k f_{i}(x_i)\) 
+\(f_{i}(x)\) 表示每棵CART，包含了树的结构以及叶
 子节点的分值。如何学习呢？能否用上述的梯度下降方法？
 </p>
 
 <p>
-答案是不能的，首先我们的$f_{i}(x)$是一个函数，它不只是参数空间的表示，
+答案是不能的，首先我们的 \(f_{i}(x)\) 是一个函数，它不只是参数空间的表示，
 还有相关树的结构在里面。
 </p>
 </div>
@@ -78,16 +81,48 @@ CART的叶子节点带有分值，这个值可以用来做回归也可以用来�
 <h3 id="orgheadline3">Gradient Boosting Regression Tree</h3>
 <div class="outline-text-3" id="text-orgheadline3">
 <ol class="org-ol">
-<li>Additive Training (加性训练), 一次学习一棵树。</li>
+<li>目标函数：</li>
 </ol>
 <p>
-\[
-\hat{y_{i}^{(0)}} = 0 \\
-\hat{y_{i}^{(1)}} = f_{1}(x_i) = y_{i}^{(1)} + f_{1}(x_i) \\
-\hat{y_{i}^{(2)}} = f_{1}(x_i) + f_{2}(x_i) = y_^{(1)} + f_{2}(x_i) \\
-... ... \\
-\hat{y_{i}^{(t)}} = \sum_{i=1}^t f_{i}(x_i) = y_{i}^{(t-1)} + f_{t}(x_i) 
-\]
+\[ Obj = \sum_{i=1}^{N} l(y_i, \hat{y_i}) + \sum_{t=1}^{k} \Omega{(f_{t})} = \sum_{i=1}^{N} l(y_i,
+\sum_{i=1}^{k} f_{i}(x_i))  + \sum_{t=1}^{k} \Omega{(f_{t})}\]
+这里的 \(l(.)\) 表示某种损失函数，比如square loss，logistic loss，
+softmax loss等等。
+</p>
+
+<p>
+2 . Additive Training (加性训练), 一次学习一棵树。
+对于上述目标函数我们似乎没法直接进行优化求解，这里需要用到加性训练的方
+式逐步求解（boosting）。具体拆解如下：
+\[ y_{i}^{(0)} = 0 \]
+\[ y_{i}^{(1)} = f_{1}(x_i) = y_{i}^{(1)} + f_{1}(x_i) \]
+\[ y_{i}^{(2)} = f_{1}(x_i) + f_{2}(x_i) = y_{i}^{(1)} + f_{2}(x_i) \]
+\[ ... ... \]
+\[ y_{i}^{(t)} = \sum_{i=1}^t f_{i}(x_i) = y_{i}^{(t-1)} + f_{t}(x_i) \]
+上面的方程式表达的中心思想就是：我们在每一步仅需要关心学习当前的树的结
+构以及参数值。具体来讲，我们在第 \(t\) 轮迭代时（即学习第$t$棵树的时候）的
+目标函数如下：
+\[ Obj^{(t)} = \sum_{i=1}^{N} l(y_i, \hat{y_{i}}^{(t)}) + \sum_{t}\Omega{(f_{t})}\]
+\[ Obj^{(t)} = \sum_{i=1}^{N} l(y_i, \hat{y_{i}}^{(t-1)} +
+f_{t}(x_i)) + \sum_{t}\Omega{(f_{t})} \]
+</p>
+
+<p>
+这里可以举square loss的例子进行具体细化，但是遇到复杂的函数，损失函数
+的计算将会变得复杂，下面介绍一种更一般法的求解目标函数的方法。
+</p>
+
+<ol class="org-ol">
+<li>更一般的解法</li>
+</ol>
+<p>
+泰勒展开式： \(f(x+\Delta(x)) \simeq f(x) + f'(x)\Delta(x) + \frac{1}{2} f''(x)\Delta(x)^2\)
+所以我们将上述损失函数用泰勒展开式近似，同时定义
+\[g_i = \frac{\partial l(y_i, \hat{y_{i}}^{(t-1)})} {\partial
+\hat{y_{i}}^{(t-1)}}, h_i = \frac{\partial^2 l(y_i, \hat{y_{i}}^{(t-1)})} {\partial
+\hat{y_{i}}^{(t-1)}} \]
+\[ L^{(t)} = \sum_{i=1}^{N} \big[ l(y_i, \hat{y_{i}}^{(t-1)}) + g_{i}
+f_{t}(x_i) + \frac{1}{2} h_{i} f_{t}(x_i)^2 \big] + \Omega{(f_t)} + constant \]
 </p>
 </div>
 </div>
@@ -101,7 +136,7 @@ CART的叶子节点带有分值，这个值可以用来做回归也可以用来�
     <section id="wrapper">
       <div class="post-meta">
         <span title="post date" class="post-info">2016-05-07</span>
-        <span title="tags" class="post-info"><a href="/tags/&lt;todo/">&lt;TODO</a>, <a href="/tags/insert-your-tags-here&gt;/">insert your tags here&gt;</a></span>
+        <span title="tags" class="post-info"><a href="/tags/xgboost/">XGBoost</a>, <a href="/tags/gradient-boosting/">Gradient Boosting</a>, <a href="/tags/machine-learning/">Machine Learning</a></span>
       </div>
       <br />
       <br />
