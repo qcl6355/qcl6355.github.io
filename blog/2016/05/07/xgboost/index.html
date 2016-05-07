@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <title>XGBoost - org-page</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="ShengLi" />
+        <meta name="description" content="Gradient Boosting Machine" />
+        <meta name="keywords" content="Gradient Boosting Machine" />
+    <link rel="stylesheet" href="/media/css/style.css">
+    <link rel="stylesheet" href="/media/css/highlight.css">
+    <style type="text/css"></style>
+</head>
+
+  <body class="container">
+    <nav class="main-nav">
+        <a href="/blog">Archive</a>
+        <a href="/tags">Tag</a>
+        <a href="/about/">About</a>
+        <a class="cta" href="https://github.com/qcl6355">GitHub</a>
+    </nav>
+
+<div>
+    <section id="wrapper">
+        <article class="post">
+            <header>
+                    <h1>XGBoost</h1>
+            </header>
+            <br />
+            <section id="post-body">
+                
+<div id="outline-container-orgheadline1" class="outline-2">
+<h2 id="orgheadline1">Supervised Learning</h2>
+<div class="outline-text-2" id="text-orgheadline1">
+<ol class="org-ol">
+<li>我们定义训练数据为$D = \{(X_i, y_i)\}_{i=1}^{N}$，这里的
+$X_i$是我们的输入（可理解为特征空间的输入），$y_i$是对应的
+标签（Ground Truth Label）。</li>
+
+<li>模型：给定样本我们需要寻求一个模型来解释这批数据（Fitting the data），
+比如线性回归模型$y=w \dot x + b$。这里的$\mathbf{w}$称为模
+型的参数。</li>
+
+<li>优化的目标： 通常我们定义一个损失函数，我们的目标就是寻求损失函数最小值情
+况下的参数值作为我们的最优的模型。仍然以线性回归为例，损失函数定义
+如下：  \[ L(\theta) = \sum_{i=1}^{N} (y_i - \hat{y_i})^2\]</li>
+
+<li>优化的方法：对应这种参数空间下的优化可以使用梯度下降的方法去优化，
+比如SGD，L-BFGS等等。</li>
+</ol>
+</div>
+</div>
+
+<div id="outline-container-orgheadline4" class="outline-2">
+<h2 id="orgheadline4">Tree Ensemble</h2>
+<div class="outline-text-2" id="text-orgheadline4">
+</div><div id="outline-container-orgheadline2" class="outline-3">
+<h3 id="orgheadline2">Classification and Regression Tree (CART)</h3>
+<div class="outline-text-3" id="text-orgheadline2">
+<p>
+CART可以理解为决策树模型，但它不等同于决策树。它与决策树不同的地方在于，
+CART的叶子节点带有分值，这个值可以用来做回归也可以用来做分类。
+</p>
+
+<p>
+自然地，我们可以构建多棵树来构建模型，形式化定义如下：\[ y_i =
+\sum_{i=1}^k f_{i}(x_i)\] $f_{i}(x)$表示每棵CART，包含了树的结构以及叶
+子节点的分值。如何学习呢？能否用上述的梯度下降方法？
+</p>
+
+<p>
+答案是不能的，首先我们的$f_{i}(x)$是一个函数，它不只是参数空间的表示，
+还有相关树的结构在里面。
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgheadline3" class="outline-3">
+<h3 id="orgheadline3">Gradient Boosting Regression Tree</h3>
+<div class="outline-text-3" id="text-orgheadline3">
+<ol class="org-ol">
+<li>Additive Training (加性训练), 一次学习一棵树。</li>
+</ol>
+<p>
+\[
+\hat{y_{i}^{(0)}} = 0 \\
+\hat{y_{i}^{(1)}} = f_{1}(x_i) = y_{i}^{(1)} + f_{1}(x_i) \\
+\hat{y_{i}^{(2)}} = f_{1}(x_i) + f_{2}(x_i) = y_^{(1)} + f_{2}(x_i) \\
+... ... \\
+\hat{y_{i}^{(t)}} = \sum_{i=1}^t f_{i}(x_i) = y_{i}^{(t-1)} + f_{t}(x_i) 
+\]
+</p>
+</div>
+</div>
+</div>
+
+            </section>
+    </section>
+</div>
+
+    <div>
+    <section id="wrapper">
+      <div class="post-meta">
+        <span title="post date" class="post-info">2016-05-07</span>
+        <span title="tags" class="post-info"><a href="/tags/&lt;todo/">&lt;TODO</a>, <a href="/tags/insert-your-tags-here&gt;/">insert your tags here&gt;</a></span>
+      </div>
+      <br />
+      <br />
+      <section>
+        <h1>Comments</h1>
+        <div id="disqus_thread"></div>
+        <script type="text/javascript">
+          //var disqus_developer = 1;
+          var disqus_identifier = "/blog/2016/05/07/xgboost";
+          var disqus_url = "http://qcl6355.github.io/blog/2016/05/07/xgboost";
+          var disqus_shortname = 'Sheng';
+          /* * * DON'T EDIT BELOW THIS LINE * * */
+          (function() {
+          var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+          dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+          (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+          })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+        <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+      </section>
+      <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prettify/r298/prettify.js"></script>
+      <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      <script src="/media/js/main.js"></script>
+      <div align="center">
+      <footer id="footer">
+        <p class="small">
+          Copyright &copy; 2012 - <span id="footerYear"></span> <a href="mailto:qcl6355 &lt;at&gt; gmail &lt;dot&gt; com">ShengLi</a>
+          &nbsp;&nbsp;-&nbsp;&nbsp;
+          Powered by <a href="https://github.com/kelvinh/org-page" target="_blank">org-page</a>
+          <script type="text/javascript">document.getElementById("footerYear").innerHTML = (new Date()).getFullYear();</script>
+        </p>
+        <br />
+      </footer>
+      </div>
+      </section>
+    </div>
+
+  </body>
+</html>

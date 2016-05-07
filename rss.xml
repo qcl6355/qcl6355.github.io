@@ -4,8 +4,8 @@
     <title>org-page</title>
     <link>http://qcl6355.github.io</link>
     <description>static site generator</description>
-    <pubDate>Sat, 07 May 2016 18:38:48 CST</pubDate>
-    <lastBuildDate>Sat, 07 May 2016 18:38:48 CST</lastBuildDate>
+    <pubDate>Sat, 07 May 2016 19:44:24 CST</pubDate>
+    <lastBuildDate>Sat, 07 May 2016 19:44:24 CST</lastBuildDate>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>Org-page static site generator (https://github.com/kelvinh/org-page)</generator>
     <item>
@@ -28,6 +28,13 @@
       <description><![CDATA[随机优化技术相关记录]]></description>
       <pubDate>2016-05-07</pubDate>
       <guid>http://qcl6355.github.io/blog/2016/03/27/随机优化技术</guid>
+    </item>
+    <item>
+      <title>XGBoost</title>
+      <link>http://qcl6355.github.io/blog/2016/05/07/xgboost</link>
+      <description><![CDATA[Gradient Boosting Machine]]></description>
+      <pubDate>2016-05-07</pubDate>
+      <guid>http://qcl6355.github.io/blog/2016/05/07/xgboost</guid>
     </item>
     <item>
       <title>LeetCode题解</title>
