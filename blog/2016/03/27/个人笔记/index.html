@@ -60,17 +60,13 @@
 <h2 id="orgheadline3">rabit框架使用总结</h2>
 <div class="outline-text-2" id="text-orgheadline3">
 <ol class="org-ol">
-<li>Allreduce peforms reduction across different computation nodes and</li>
+<li>Allreduce peforms reduction across different computation nodes and
+returns the result to every node.</li>
+
+<li>Broadcast is another method, this function allows one node to
+broadcast its local data to all other nodes.</li>
 </ol>
-<p>
-returns the result to every node.
-</p>
-<ol class="org-ol">
-<li>Broadcast is another method, this function allows one node to broadcast</li>
-</ol>
-<p>
-its local data to all other nodes.
-</p>
+
 <div class="org-src-container">
 
 <pre class="src src-c++">#include &lt;rabit.h&gt;
