@@ -4,23 +4,30 @@
     <title>org-page</title>
     <link>http://qcl6355.github.io</link>
     <description>static site generator</description>
-    <pubDate>Sun, 08 May 2016 01:38:59 CST</pubDate>
-    <lastBuildDate>Sun, 08 May 2016 01:38:59 CST</lastBuildDate>
+    <pubDate>Wed, 29 Jun 2016 11:07:23 CST</pubDate>
+    <lastBuildDate>Wed, 29 Jun 2016 11:07:23 CST</lastBuildDate>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>Org-page static site generator (https://github.com/kelvinh/org-page)</generator>
+    <item>
+      <title>SyntaxNet GPU版安装</title>
+      <link>http://qcl6355.github.io/blog/2016/06/29/SyntaxNet GPU版安装</link>
+      <description><![CDATA[SyntaxNet GPU版安装纪录]]></description>
+      <pubDate>2016-06-29</pubDate>
+      <guid>http://qcl6355.github.io/blog/2016/06/29/SyntaxNet GPU版安装</guid>
+    </item>
+    <item>
+      <title>个人笔记</title>
+      <link>http://qcl6355.github.io/blog/2016/03/27/个人笔记</link>
+      <description><![CDATA[一些问题的解决方法]]></description>
+      <pubDate>2016-05-11</pubDate>
+      <guid>http://qcl6355.github.io/blog/2016/03/27/个人笔记</guid>
+    </item>
     <item>
       <title>D3可视化学习</title>
       <link>http://qcl6355.github.io/blog/2016/03/27/d3可视化学习</link>
       <description><![CDATA[D3可视化学习笔记]]></description>
       <pubDate>2016-05-08</pubDate>
       <guid>http://qcl6355.github.io/blog/2016/03/27/d3可视化学习</guid>
-    </item>
-    <item>
-      <title>个人笔记</title>
-      <link>http://qcl6355.github.io/blog/2016/03/27/个人笔记</link>
-      <description><![CDATA[一些问题的解决方法]]></description>
-      <pubDate>2016-05-08</pubDate>
-      <guid>http://qcl6355.github.io/blog/2016/03/27/个人笔记</guid>
     </item>
     <item>
       <title>随机优化技术</title>
