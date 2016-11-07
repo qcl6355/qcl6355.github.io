@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en-us">
 <head>
-    <title>LeetCode题解 - Sheng Li&#39;s Blog</title>
+    <title>Log-Linear Model - Sheng Li&#39;s Blog</title>
     <meta charset="utf-8" />
     <meta name="author" content="ShengLi" />
-        <meta name="description" content="Sheng Li&#39;s LeetCode题解" />
-        <meta name="keywords" content="LeetCode,Java,Algorithm" />
+        <meta name="description" content="Log-Linear Model Description" />
+        <meta name="keywords" content="log-linear, maximum entropy, softmax" />
     <link rel="stylesheet" href="/media/css/style.css">
     <link rel="stylesheet" href="/media/css/highlight.css">
     <style type="text/css"></style>
@@ -23,54 +23,21 @@
     <section id="wrapper">
         <article class="post">
             <header>
-                    <h1>LeetCode题解</h1>
+                    <h1>Log-Linear Model</h1>
             </header>
             <br />
             <section id="post-body">
                 
 <div id="outline-container-orgheadline1" class="outline-2">
-<h2 id="orgheadline1">Two Sum</h2>
+<h2 id="orgheadline1">Log-Linear Model</h2>
 <div class="outline-text-2" id="text-orgheadline1">
-<blockquote>
-<p>
-Given an array of integers, find two numbers such that they add up to
-a specific target number.  The function twoSum should return
-indices of the two numbers such that they add up to the target,
-where index1 must be less than index2. Please note that your
-returned answers (both index1 and index2) are not zero-based.
-You may assume that each input would have exactly one solution.
-</p>
-
-<p>
-Input: numbers={2, 7, 11, 15}, target=9
-</p>
-
-<p>
-Output: index1=1, index2=2
-</p>
-</blockquote>
-
-<div class="org-src-container">
-
-<pre class="src src-java">public int[] twoSum(int[] numbers, int target) {
-    int res[] = new int[2];
-    Map&lt;Integer, Integer&gt; numToIndex = new HashMap&lt;Integer, Integer&gt;();
-    for (int i = 0; i &lt; numbers.length; i++) {
-        numToIndex.put(numbers[i], i);
-    }
-
-    for (int i = 0; i &lt; numbers.length; i++) {
-        int t = target - numbers[i];
-        if (numToIndex.containsKey(t) &amp;&amp; numToIndex.get(t) &gt; i) {
-            res[0] = i+1;
-            res[1] = numToIndex.get(t);
-            break;
-        }
-    }
-    return res;
-}
-</pre>
-</div>
+<ol class="org-ol">
+<li>Definitions: 假设有训练数据 $\{X^{(i)}, y^{(i)}\}_{i=1}^{n}$；类别
+\(y \in Y\) ， 这里的 \(Y\) 表示类别集合。</li>
+<li>假设我们的模型已经训练好，应用如下公司计算出某个类别 \(y\) 的概率：
+\[ p(y|x) = \frac{exp\{w \dot f(x, y)\}} {\sum_{y' \in Y} exp\{w \dot
+   f(x, y') \} } \]</li>
+</ol>
 </div>
 </div>
 
@@ -81,8 +48,8 @@ Output: index1=1, index2=2
     <div>
     <section id="wrapper">
       <div class="post-meta">
-        <span title="post date" class="post-info">2016-03-26</span>
-        <span title="tags" class="post-info"><a href="/tags/leetcode/">LeetCode</a>, <a href="/tags/java/">Java</a>, <a href="/tags/algorithm/">Algorithm</a></span>
+        <span title="post date" class="post-info">2016-11-07</span>
+        <span title="tags" class="post-info"><a href="/tags/log-linear/">log-linear</a>, <a href="/tags/maximum-entropy/">maximum entropy</a>, <a href="/tags/softmax/">softmax</a></span>
       </div>
       <br />
       <br />
@@ -91,8 +58,8 @@ Output: index1=1, index2=2
         <div id="disqus_thread"></div>
         <script type="text/javascript">
           //var disqus_developer = 1;
-          var disqus_identifier = "/wiki/2016/03/26/leetcode题解";
-          var disqus_url = "http://qcl6355.github.io/wiki/2016/03/26/leetcode题解";
+          var disqus_identifier = "/blog/2016/11/07/log-linear-model";
+          var disqus_url = "http://qcl6355.github.io/blog/2016/11/07/log-linear-model";
           var disqus_shortname = 'Sheng';
           /* * * DON'T EDIT BELOW THIS LINE * * */
           (function() {

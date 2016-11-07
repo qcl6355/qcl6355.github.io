@@ -1,13 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
 <rss version="2.0">
   <channel>
-    <title>org-page</title>
+    <title>Sheng Li&#39;s Blog</title>
     <link>http://qcl6355.github.io</link>
-    <description>static site generator</description>
-    <pubDate>Wed, 29 Jun 2016 11:07:23 CST</pubDate>
-    <lastBuildDate>Wed, 29 Jun 2016 11:07:23 CST</lastBuildDate>
+    <description>Ultimated Blade Works</description>
+    <pubDate>Mon, 07 Nov 2016 14:42:11 CST</pubDate>
+    <lastBuildDate>Mon, 07 Nov 2016 14:42:11 CST</lastBuildDate>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>Org-page static site generator (https://github.com/kelvinh/org-page)</generator>
+    <item>
+      <title>Log-Linear Model</title>
+      <link>http://qcl6355.github.io/blog/2016/11/07/log-linear-model</link>
+      <description><![CDATA[Log-Linear Model Description]]></description>
+      <pubDate>2016-11-07</pubDate>
+      <guid>http://qcl6355.github.io/blog/2016/11/07/log-linear-model</guid>
+    </item>
+    <item>
+      <title>XGBoost</title>
+      <link>http://qcl6355.github.io/blog/2016/05/07/xgboost</link>
+      <description><![CDATA[Gradient Boosting Machine]]></description>
+      <pubDate>2016-11-07</pubDate>
+      <guid>http://qcl6355.github.io/blog/2016/05/07/xgboost</guid>
+    </item>
+    <item>
+      <title>个人笔记</title>
+      <link>http://qcl6355.github.io/blog/2016/03/27/个人笔记</link>
+      <description><![CDATA[一些问题的解决方法]]></description>
+      <pubDate>2016-06-29</pubDate>
+      <guid>http://qcl6355.github.io/blog/2016/03/27/个人笔记</guid>
+    </item>
     <item>
       <title>SyntaxNet GPU版安装</title>
       <link>http://qcl6355.github.io/blog/2016/06/29/SyntaxNet GPU版安装</link>
@@ -16,38 +37,24 @@
       <guid>http://qcl6355.github.io/blog/2016/06/29/SyntaxNet GPU版安装</guid>
     </item>
     <item>
-      <title>个人笔记</title>
-      <link>http://qcl6355.github.io/blog/2016/03/27/个人笔记</link>
-      <description><![CDATA[一些问题的解决方法]]></description>
-      <pubDate>2016-05-11</pubDate>
-      <guid>http://qcl6355.github.io/blog/2016/03/27/个人笔记</guid>
+      <title>随机优化技术</title>
+      <link>http://qcl6355.github.io/blog/2016/03/27/随机优化技术</link>
+      <description><![CDATA[随机优化技术相关记录]]></description>
+      <pubDate>2016-05-07</pubDate>
+      <guid>http://qcl6355.github.io/blog/2016/03/27/随机优化技术</guid>
     </item>
     <item>
       <title>D3可视化学习</title>
       <link>http://qcl6355.github.io/blog/2016/03/27/d3可视化学习</link>
       <description><![CDATA[D3可视化学习笔记]]></description>
-      <pubDate>2016-05-08</pubDate>
+      <pubDate>2016-03-27</pubDate>
       <guid>http://qcl6355.github.io/blog/2016/03/27/d3可视化学习</guid>
-    </item>
-    <item>
-      <title>随机优化技术</title>
-      <link>http://qcl6355.github.io/blog/2016/03/27/随机优化技术</link>
-      <description><![CDATA[随机优化技术相关记录]]></description>
-      <pubDate>2016-05-08</pubDate>
-      <guid>http://qcl6355.github.io/blog/2016/03/27/随机优化技术</guid>
-    </item>
-    <item>
-      <title>XGBoost</title>
-      <link>http://qcl6355.github.io/blog/2016/05/07/xgboost</link>
-      <description><![CDATA[Gradient Boosting Machine]]></description>
-      <pubDate>2016-05-08</pubDate>
-      <guid>http://qcl6355.github.io/blog/2016/05/07/xgboost</guid>
     </item>
     <item>
       <title>LeetCode题解</title>
       <link>http://qcl6355.github.io/wiki/2016/03/26/leetcode题解</link>
       <description><![CDATA[Sheng Li's LeetCode题解]]></description>
-      <pubDate>2016-05-08</pubDate>
+      <pubDate>2016-03-26</pubDate>
       <guid>http://qcl6355.github.io/wiki/2016/03/26/leetcode题解</guid>
     </item>
   </channel>
