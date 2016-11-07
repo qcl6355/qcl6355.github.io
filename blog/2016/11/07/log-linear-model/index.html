@@ -34,9 +34,12 @@
 <ol class="org-ol">
 <li>Definitions: 假设有训练数据 $\{X^{(i)}, y^{(i)}\}_{i=1}^{n}$；类别
 \(y \in Y\) ， 这里的 \(Y\) 表示类别集合。</li>
+
 <li>假设我们的模型已经训练好，应用如下公司计算出某个类别 \(y\) 的概率：
-\[ p(y|x) = \frac{exp\{w \dot f(x, y)\}} {\sum_{y' \in Y} exp\{w \dot
+\[ P(y|x) = \frac{exp\{w \dot f(x, y)\}} {\sum_{y' \in Y} exp\{w \dot
    f(x, y') \} } \]</li>
+
+<li>极大似然估计： \(L(\theta) = \sum_{i=1}^{n} Log(P(y^{(i)}|X^{(i)}))\)</li>
 </ol>
 </div>
 </div>
