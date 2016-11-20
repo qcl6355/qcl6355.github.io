@@ -61,12 +61,12 @@
         <div class="col-md-2"></div>
             <h1>个人笔记</h1>
             
-<div id="outline-container-orgd92a5b4" class="outline-2">
-<h2 id="orgd92a5b4">MXNet编译相关</h2>
-<div class="outline-text-2" id="text-orgd92a5b4">
-</div><div id="outline-container-org5896545" class="outline-3">
-<h3 id="org5896545">no 'return_type' compile error</h3>
-<div class="outline-text-3" id="text-org5896545">
+<div id="outline-container-org4629554" class="outline-2">
+<h2 id="org4629554">MXNet编译相关</h2>
+<div class="outline-text-2" id="text-org4629554">
+</div><div id="outline-container-orgf470594" class="outline-3">
+<h3 id="orgf470594">no 'return_type' compile error</h3>
+<div class="outline-text-3" id="text-orgf470594">
 <p>
 可能是子模块的版本不对应造成的，解决方法：git pull &amp; git submodule update &amp; make clean &amp; make -j
 </p>
@@ -74,9 +74,9 @@
 </div>
 </div>
 
-<div id="outline-container-org6840329" class="outline-2">
-<h2 id="org6840329">rabit框架使用总结</h2>
-<div class="outline-text-2" id="text-org6840329">
+<div id="outline-container-orgd40687a" class="outline-2">
+<h2 id="orgd40687a">rabit框架使用总结</h2>
+<div class="outline-text-2" id="text-orgd40687a">
 <ol class="org-ol">
 <li>Allreduce peforms reduction across different computation nodes and
 returns the result to every node.</li>
@@ -112,9 +112,9 @@ int main(int argc, char *argv[]) {
 </div>
 </div>
 </div>
-<div id="outline-container-orgd7df580" class="outline-2">
-<h2 id="orgd7df580">JNI调用native方法出现 java.lang.UnsatisfiedLinkError: XXXclass.XXXmethod（）异常的解决办法</h2>
-<div class="outline-text-2" id="text-orgd7df580">
+<div id="outline-container-org0b17cbf" class="outline-2">
+<h2 id="org0b17cbf">JNI调用native方法出现 java.lang.UnsatisfiedLinkError: XXXclass.XXXmethod（）异常的解决办法</h2>
+<div class="outline-text-2" id="text-org0b17cbf">
 <p>
 需要保持工程调用JNI的包名与so库定义的包名类名方法名一致
 </p>
