@@ -1,44 +1,76 @@
 <!DOCTYPE html>
 <html lang="en-us">
 <head>
-    <title>SyntaxNet GPU版安装 - Sheng Li&#39;s Blog</title>
-    <meta charset="utf-8" />
-    <meta name="author" content="ShengLi" />
-        <meta name="description" content="SyntaxNet GPU版安装纪录" />
-        <meta name="keywords" content="SyntaxNet,GPU,Dependency Parsing" />
-    <link rel="stylesheet" href="/media/css/style.css">
-    <link rel="stylesheet" href="/media/css/highlight.css">
-    <style type="text/css"></style>
+  <title>SyntaxNet GPU版安装 - Sheng Li&#39;s Blog</title>
+  <meta charset="utf-8" />
+  <meta name="author" content="ShengLi" />
+  <meta name="description" content="SyntaxNet GPU版安装纪录" />
+  <meta name="keywords" content="SyntaxNet,GPU,Dependency Parsing" />
+
+  <link rel="alternate" title="RSS Feed" href="/rss.xml" type="application/rss+xml">
+  <!-- <link rel="stylesheet" href="/media/css/main.css" type="text/css"> -->
+  <!-- <link rel="stylesheet" href="/media/css/posts.css" type="text/css"> -->
+
+  <!-- Mobile Specific Metas
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- FONT
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <!-- Google webfonts is almost not accessible from China, so we host locally -->
+  <link href="/media/fonts/fonts.css" type="text/css" rel="stylesheet" media="all">
+
+  <!-- CSS
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link rel="stylesheet" href="/media/css/normalize.css">
+  <link rel="stylesheet" href="/media/css/skeleton.css">
+
+  <link href="/media/css/pygments.css" type="text/css" rel="stylesheet" media="all">
+
+  <link rel="stylesheet" href="/media/css/customize.css">
 </head>
 
   <body class="container">
-    <nav class="main-nav">
-        <a href="/blog">Archive</a>
-        <a href="/tags">Tag</a>
-        <a href="/about/">About</a>
-        <a class="cta" href="https://github.com/qcl6355">GitHub</a>
+<header id="header">
+<body>
+    <nav class="navbar navbar-default navbar-fixed-top" style="opacity: .9" role="navigation">
+        <div class="container-fluid">
+<div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Sheng Li&#39;s Blog</a>
+        </div>
+<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <li class="active"><a href="/">Blog</a></li>
+                <li class="active"><a href="/">Wiki</a></li>
+          <li><a href="https://github.com/qcl6355">GitHub</a></li>
+        </ul>
+</div>
+</div>
     </nav>
+</body>
+</header>
 
-<div>
-    <section id="wrapper">
-        <article class="post">
-            <header>
-                    <h1>SyntaxNet GPU版安装</h1>
-            </header>
-            <br />
-            <section id="post-body">
-                
-<div id="outline-container-orgheadline10" class="outline-2">
-<h2 id="orgheadline10">SyntaxNet GPU版安装</h2>
-<div class="outline-text-2" id="text-orgheadline10">
-</div><div id="outline-container-orgheadline1" class="outline-3">
-<h3 id="orgheadline1">安装Bazel</h3>
-<div class="outline-text-3" id="text-orgheadline1">
+<section id="content" role="main">
+    <div id="outline-container-sec-" class="row" style="padding-top: 70px">
+        <div class="col-md-2"></div>
+            <h1>SyntaxNet GPU版安装</h1>
+            
+<div id="outline-container-org07b3e46" class="outline-2">
+<h2 id="org07b3e46">SyntaxNet GPU版安装</h2>
+<div class="outline-text-2" id="text-org07b3e46">
+</div><div id="outline-container-org7f63b95" class="outline-3">
+<h3 id="org7f63b95">安装Bazel</h3>
+<div class="outline-text-3" id="text-org7f63b95">
 <p>
 前提条件：JDK1.8
 </p>
 <div class="org-src-container">
-
 <pre class="src src-shell">git clone https://github.com/bazelbuild/bazel.git
 cd bazel
 ./compile.sh
@@ -49,7 +81,6 @@ cd bazel
 </p>
 
 <div class="org-src-container">
-
 <pre class="src src-shell">PATH=$PATH:$HOME/bazel/bazel-bin/src
 export PATH
 </pre>
@@ -57,14 +88,13 @@ export PATH
 </div>
 </div>
 
-<div id="outline-container-orgheadline8" class="outline-3">
-<h3 id="orgheadline8">安装SyntaxNet</h3>
-<div class="outline-text-3" id="text-orgheadline8">
-</div><div id="outline-container-orgheadline2" class="outline-4">
-<h4 id="orgheadline2">下载syntaxnet</h4>
-<div class="outline-text-4" id="text-orgheadline2">
+<div id="outline-container-org8a39a57" class="outline-3">
+<h3 id="org8a39a57">安装SyntaxNet</h3>
+<div class="outline-text-3" id="text-org8a39a57">
+</div><div id="outline-container-org78e6627" class="outline-4">
+<h4 id="org78e6627">下载syntaxnet</h4>
+<div class="outline-text-4" id="text-org78e6627">
 <div class="org-src-container">
-
 <pre class="src src-shell">git clone --recursive https://github.com/tensorflow/models.git
 cd models/syntaxnet/tensorflow
 ./configure
@@ -80,9 +110,9 @@ wget 或 git clone下载。
 </div>
 </div>
 
-<div id="outline-container-orgheadline3" class="outline-4">
-<h4 id="orgheadline3">下载依赖软件</h4>
-<div class="outline-text-4" id="text-orgheadline3">
+<div id="outline-container-org0da2555" class="outline-4">
+<h4 id="org0da2555">下载依赖软件</h4>
+<div class="outline-text-4" id="text-org0da2555">
 <p>
 models/syntaxnet/tensorflow/tensorflow/workspace.bzl 文件给出了需要
 依赖的文件。最新版的syntaxnet需要依赖gmock1.7, eigen, farmhash, jpegsrc, libpng,
@@ -97,9 +127,9 @@ git checkout xxxxx 到对应的版本上去。
 </div>
 </div>
 
-<div id="outline-container-orgheadline4" class="outline-4">
-<h4 id="orgheadline4">依赖软件存放的位置</h4>
-<div class="outline-text-4" id="text-orgheadline4">
+<div id="outline-container-org902d38b" class="outline-4">
+<h4 id="org902d38b">依赖软件存放的位置</h4>
+<div class="outline-text-4" id="text-org902d38b">
 <p>
 先执行 bazel build syntaxnet/... util/utf8/... 等5-6秒后ctrl-c关闭，
 这个时候切换到~/.cache/bazel/_bazel_lisheng.ls/xxxxxxxx/external/
@@ -117,11 +147,10 @@ N.B. _bazel_lisheng.ls跟用户名关联，比如你是michael，对应的路径
 </div>
 </div>
 
-<div id="outline-container-orgheadline5" class="outline-4">
-<h4 id="orgheadline5">编译CPU版本</h4>
-<div class="outline-text-4" id="text-orgheadline5">
+<div id="outline-container-orgc325bbf" class="outline-4">
+<h4 id="orgc325bbf">编译CPU版本</h4>
+<div class="outline-text-4" id="text-orgc325bbf">
 <div class="org-src-container">
-
 <pre class="src src-shell">bazel test syntaxnet/... util/utf8/... --fetch=false
 </pre>
 </div>
@@ -132,14 +161,13 @@ N.B. _bazel_lisheng.ls跟用户名关联，比如你是michael，对应的路径
 </div>
 </div>
 
-<div id="outline-container-orgheadline6" class="outline-4">
-<h4 id="orgheadline6">编译GPU版本 (前提你要有GPU)</h4>
-<div class="outline-text-4" id="text-orgheadline6">
+<div id="outline-container-orgea0cbd2" class="outline-4">
+<h4 id="orgea0cbd2">编译GPU版本 (前提你要有GPU)</h4>
+<div class="outline-text-4" id="text-orgea0cbd2">
 <p>
 配置：
 </p>
 <div class="org-src-container">
-
 <pre class="src src-shell">cd models/syntaxnet/tensorflow 
 ./configure
 </pre>
@@ -154,7 +182,6 @@ N.B. 不要Google Cloud相关东西，那个选项输入N。
 如下命令
 </p>
 <div class="org-src-container">
-
 <pre class="src src-shell">build:cuda --define=using_cuda=true --define=using_cuda_nvcc=true
 </pre>
 </div>
@@ -163,7 +190,6 @@ N.B. 不要Google Cloud相关东西，那个选项输入N。
 然后：
 </p>
 <div class="org-src-container">
-
 <pre class="src src-shell">cd /models/syntaxnet/tensorflow/third_party/gpus/cuda
 </pre>
 </div>
@@ -173,7 +199,6 @@ N.B. 不要Google Cloud相关东西，那个选项输入N。
 类似下面这个函数，不保证以后的版本会不会是172行...
 </p>
 <div class="org-src-container">
-
 <pre class="src src-shell">cmd = if_cuda(
   # Under cuda config, create all the symbolic links to the actual cuda files
   "OUTPUTDIR=`{} -f $(@D)/../../..`; cd third_party/gpus/cuda; OUTPUTDIR=$$OUTPUTDIR ./cuda_config.sh --check;".format(readlink_command()),
@@ -186,7 +211,6 @@ N.B. 不要Google Cloud相关东西，那个选项输入N。
 最后：
 </p>
 <div class="org-src-container">
-
 <pre class="src src-shell">bazel test syntaxnet/... util/utf8/... --fetch=false --config=cuda
 </pre>
 </div>
@@ -196,9 +220,9 @@ N.B. 不要Google Cloud相关东西，那个选项输入N。
 </div>
 </div>
 
-<div id="outline-container-orgheadline7" class="outline-4">
-<h4 id="orgheadline7">吐槽</h4>
-<div class="outline-text-4" id="text-orgheadline7">
+<div id="outline-container-org215f1a8" class="outline-4">
+<h4 id="org215f1a8">吐槽</h4>
+<div class="outline-text-4" id="text-org215f1a8">
 <p>
 内心是痛苦的，这玩意折腾了两天，网上也没有现成的方案。现记录与此希望
 可以帮助到你。
@@ -214,9 +238,9 @@ Anyway, Have Fun with SyntaxNet!
 </div>
 </div>
 
-<div id="outline-container-orgheadline9" class="outline-3">
-<h3 id="orgheadline9">备注：</h3>
-<div class="outline-text-3" id="text-orgheadline9">
+<div id="outline-container-orgacd0316" class="outline-3">
+<h3 id="orgacd0316">备注：</h3>
+<div class="outline-text-3" id="text-orgacd0316">
 <p>
 我在编译的时候，还关闭了tensorboard的编译，这个编译还需要下载很多
 东西。编译sytanxnet应该不需要这个，如果遇到遇到关于tensorboard问题，把
@@ -233,53 +257,13 @@ syntaxnet在使用GPU的时候，调度起了两个显卡(机器有两个显卡)
 </div>
 </div>
 
-            </section>
-    </section>
-</div>
-
-    <div>
-    <section id="wrapper">
-      <div class="post-meta">
-        <span title="post date" class="post-info">2016-06-29</span>
-        <span title="tags" class="post-info"><a href="/tags/syntaxnet/">SyntaxNet</a>, <a href="/tags/gpu/">GPU</a>, <a href="/tags/dependency-parsing/">Dependency Parsing</a></span>
-      </div>
-      <br />
-      <br />
-      <section>
-        <h1>Comments</h1>
-        <div id="disqus_thread"></div>
-        <script type="text/javascript">
-          //var disqus_developer = 1;
-          var disqus_identifier = "/blog/2016/06/29/SyntaxNet GPU版安装";
-          var disqus_url = "http://qcl6355.github.io/blog/2016/06/29/SyntaxNet GPU版安装";
-          var disqus_shortname = 'Sheng';
-          /* * * DON'T EDIT BELOW THIS LINE * * */
-          (function() {
-          var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-          dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
-          (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-          })();
-        </script>
-        <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-        <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
-      </section>
-      <script src="http://code.jquery.com/jquery-latest.min.js"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/prettify/r298/prettify.js"></script>
-      <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-      <script src="/media/js/main.js"></script>
-      <div align="center">
-      <footer id="footer">
-        <p class="small">
-          Copyright &copy; 2012 - <span id="footerYear"></span> <a href="mailto:qcl6355 &lt;at&gt; gmail &lt;dot&gt; com">ShengLi</a>
-          &nbsp;&nbsp;-&nbsp;&nbsp;
-          Powered by <a href="https://github.com/kelvinh/org-page" target="_blank">org-page</a>
-          <script type="text/javascript">document.getElementById("footerYear").innerHTML = (new Date()).getFullYear();</script>
-        </p>
-        <br />
-      </footer>
-      </div>
-      </section>
     </div>
+</section>
+
+
+<footer id="footer">
+    <br />
+</footer>
 
   </body>
 </html>
