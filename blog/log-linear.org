@@ -1,0 +1,20 @@
+#+TITLE:       Log-Linear Model
+#+AUTHOR:      ShengLi
+#+EMAIL:       qcl6355@gmail.com
+#+DATE:        2016-11-07 Mon
+#+URI:         /blog/%y/%m/%d/log-linear-model
+#+KEYWORDS:    log-linear, maximum entropy, softmax
+#+TAGS:        log-linear, maximum entropy, softmax
+#+LANGUAGE:    en
+#+OPTIONS:     H:3 num:nil toc:nil \n:nil ::t |:t ^:nil -:nil f:t *:t <:t
+#+DESCRIPTION: Log-Linear Model Description
+
+* Log-Linear Model
+1. Definitions: 假设有训练数据 $\{X^{(i)}, y^{(i)}\}_{i=1}^{n}$ ；类别
+   $y \in Y$ ， 这里的 $Y$ 表示类别集合。
+
+2. 假设我们的模型已经训练好，应用如下公式计算出某个类别 $y$ 的概率：
+   \[ P(y|x) = \frac{exp\{w \cdot f(x, y)\}} {\sum_{y' \in Y} exp\{w \cdot
+   f(x, y') \} } \]
+
+3. 极大似然估计： $L(\theta) = \sum_{i=1}^{n} Log(P(y^{(i)}|X^{(i)}))$ 
