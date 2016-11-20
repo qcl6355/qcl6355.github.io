@@ -66,12 +66,12 @@
         <div class="col-md-2"></div>
             <h1>SyntaxNet GPU版安装</h1>
             
-<div id="outline-container-org5a2168a" class="outline-2">
-<h2 id="org5a2168a">SyntaxNet GPU版安装</h2>
-<div class="outline-text-2" id="text-org5a2168a">
-</div><div id="outline-container-orgf7effa4" class="outline-3">
-<h3 id="orgf7effa4">安装Bazel</h3>
-<div class="outline-text-3" id="text-orgf7effa4">
+<div id="outline-container-org9f51365" class="outline-2">
+<h2 id="org9f51365">SyntaxNet GPU版安装</h2>
+<div class="outline-text-2" id="text-org9f51365">
+</div><div id="outline-container-org14ee4df" class="outline-3">
+<h3 id="org14ee4df">安装Bazel</h3>
+<div class="outline-text-3" id="text-org14ee4df">
 <p>
 前提条件：JDK1.8
 </p>
@@ -93,12 +93,12 @@ export PATH
 </div>
 </div>
 
-<div id="outline-container-org2242511" class="outline-3">
-<h3 id="org2242511">安装SyntaxNet</h3>
-<div class="outline-text-3" id="text-org2242511">
-</div><div id="outline-container-org50a42eb" class="outline-4">
-<h4 id="org50a42eb">下载syntaxnet</h4>
-<div class="outline-text-4" id="text-org50a42eb">
+<div id="outline-container-org51a0bba" class="outline-3">
+<h3 id="org51a0bba">安装SyntaxNet</h3>
+<div class="outline-text-3" id="text-org51a0bba">
+</div><div id="outline-container-orgd941bb8" class="outline-4">
+<h4 id="orgd941bb8">下载syntaxnet</h4>
+<div class="outline-text-4" id="text-orgd941bb8">
 <div class="org-src-container">
 <pre class="src src-shell">git clone --recursive https://github.com/tensorflow/models.git
 cd models/syntaxnet/tensorflow
@@ -115,9 +115,9 @@ wget 或 git clone下载。
 </div>
 </div>
 
-<div id="outline-container-orgb2dd536" class="outline-4">
-<h4 id="orgb2dd536">下载依赖软件</h4>
-<div class="outline-text-4" id="text-orgb2dd536">
+<div id="outline-container-org6a75492" class="outline-4">
+<h4 id="org6a75492">下载依赖软件</h4>
+<div class="outline-text-4" id="text-org6a75492">
 <p>
 models/syntaxnet/tensorflow/tensorflow/workspace.bzl 文件给出了需要
 依赖的文件。最新版的syntaxnet需要依赖gmock1.7, eigen, farmhash, jpegsrc, libpng,
@@ -132,9 +132,9 @@ git checkout xxxxx 到对应的版本上去。
 </div>
 </div>
 
-<div id="outline-container-orgf154b3c" class="outline-4">
-<h4 id="orgf154b3c">依赖软件存放的位置</h4>
-<div class="outline-text-4" id="text-orgf154b3c">
+<div id="outline-container-org181063d" class="outline-4">
+<h4 id="org181063d">依赖软件存放的位置</h4>
+<div class="outline-text-4" id="text-org181063d">
 <p>
 先执行 bazel build syntaxnet/... util/utf8/... 等5-6秒后ctrl-c关闭，
 这个时候切换到~/.cache/bazel/_bazel_lisheng.ls/xxxxxxxx/external/
@@ -152,9 +152,9 @@ N.B. _bazel_lisheng.ls跟用户名关联，比如你是michael，对应的路径
 </div>
 </div>
 
-<div id="outline-container-orgea52b8f" class="outline-4">
-<h4 id="orgea52b8f">编译CPU版本</h4>
-<div class="outline-text-4" id="text-orgea52b8f">
+<div id="outline-container-org4b36de0" class="outline-4">
+<h4 id="org4b36de0">编译CPU版本</h4>
+<div class="outline-text-4" id="text-org4b36de0">
 <div class="org-src-container">
 <pre class="src src-shell">bazel test syntaxnet/... util/utf8/... --fetch=false
 </pre>
@@ -166,9 +166,9 @@ N.B. _bazel_lisheng.ls跟用户名关联，比如你是michael，对应的路径
 </div>
 </div>
 
-<div id="outline-container-org9ce0f79" class="outline-4">
-<h4 id="org9ce0f79">编译GPU版本 (前提你要有GPU)</h4>
-<div class="outline-text-4" id="text-org9ce0f79">
+<div id="outline-container-orgc38e491" class="outline-4">
+<h4 id="orgc38e491">编译GPU版本 (前提你要有GPU)</h4>
+<div class="outline-text-4" id="text-orgc38e491">
 <p>
 配置：
 </p>
@@ -225,9 +225,9 @@ N.B. 不要Google Cloud相关东西，那个选项输入N。
 </div>
 </div>
 
-<div id="outline-container-org7c65d2a" class="outline-4">
-<h4 id="org7c65d2a">吐槽</h4>
-<div class="outline-text-4" id="text-org7c65d2a">
+<div id="outline-container-org12cfa83" class="outline-4">
+<h4 id="org12cfa83">吐槽</h4>
+<div class="outline-text-4" id="text-org12cfa83">
 <p>
 内心是痛苦的，这玩意折腾了两天，网上也没有现成的方案。现记录与此希望
 可以帮助到你。
@@ -243,9 +243,9 @@ Anyway, Have Fun with SyntaxNet!
 </div>
 </div>
 
-<div id="outline-container-org271dc4f" class="outline-3">
-<h3 id="org271dc4f">备注：</h3>
-<div class="outline-text-3" id="text-org271dc4f">
+<div id="outline-container-orgd81700c" class="outline-3">
+<h3 id="orgd81700c">备注：</h3>
+<div class="outline-text-3" id="text-orgd81700c">
 <p>
 我在编译的时候，还关闭了tensorboard的编译，这个编译还需要下载很多
 东西。编译sytanxnet应该不需要这个，如果遇到遇到关于tensorboard问题，把
