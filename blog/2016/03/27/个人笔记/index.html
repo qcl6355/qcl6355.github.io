@@ -28,6 +28,11 @@
   <link href="/media/css/pygments.css" type="text/css" rel="stylesheet" media="all">
 
   <link rel="stylesheet" href="/media/css/customize.css">
+
+  <!-- MathJax -->
+  <script type="text/javascript"
+    src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+  </script>
 </head>
 
   <body class="container">
@@ -61,12 +66,12 @@
         <div class="col-md-2"></div>
             <h1>个人笔记</h1>
             
-<div id="outline-container-org8fb19b4" class="outline-2">
-<h2 id="org8fb19b4">MXNet编译相关</h2>
-<div class="outline-text-2" id="text-org8fb19b4">
-</div><div id="outline-container-org0031fac" class="outline-3">
-<h3 id="org0031fac">no 'return_type' compile error</h3>
-<div class="outline-text-3" id="text-org0031fac">
+<div id="outline-container-org73ea889" class="outline-2">
+<h2 id="org73ea889">MXNet编译相关</h2>
+<div class="outline-text-2" id="text-org73ea889">
+</div><div id="outline-container-org2873e9a" class="outline-3">
+<h3 id="org2873e9a">no 'return_type' compile error</h3>
+<div class="outline-text-3" id="text-org2873e9a">
 <p>
 可能是子模块的版本不对应造成的，解决方法：git pull &amp; git submodule update &amp; make clean &amp; make -j
 </p>
@@ -74,9 +79,9 @@
 </div>
 </div>
 
-<div id="outline-container-org666c924" class="outline-2">
-<h2 id="org666c924">rabit框架使用总结</h2>
-<div class="outline-text-2" id="text-org666c924">
+<div id="outline-container-org5b6feff" class="outline-2">
+<h2 id="org5b6feff">rabit框架使用总结</h2>
+<div class="outline-text-2" id="text-org5b6feff">
 <ol class="org-ol">
 <li>Allreduce peforms reduction across different computation nodes and
 returns the result to every node.</li>
@@ -112,9 +117,9 @@ int main(int argc, char *argv[]) {
 </div>
 </div>
 </div>
-<div id="outline-container-org9525b53" class="outline-2">
-<h2 id="org9525b53">JNI调用native方法出现 java.lang.UnsatisfiedLinkError: XXXclass.XXXmethod（）异常的解决办法</h2>
-<div class="outline-text-2" id="text-org9525b53">
+<div id="outline-container-orgef61a4a" class="outline-2">
+<h2 id="orgef61a4a">JNI调用native方法出现 java.lang.UnsatisfiedLinkError: XXXclass.XXXmethod（）异常的解决办法</h2>
+<div class="outline-text-2" id="text-orgef61a4a">
 <p>
 需要保持工程调用JNI的包名与so库定义的包名类名方法名一致
 </p>
